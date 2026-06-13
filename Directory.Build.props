@@ -1,0 +1,14 @@
+<Project>
+
+  <!-- Shared build settings for every project in the solution. Individual
+       csproj files should stay close to empty - if you find yourself adding
+       the same property in three places, it belongs here. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+</Project>

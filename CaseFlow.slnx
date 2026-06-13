@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CaseFlow.Api/CaseFlow.Api.csproj" />
+    <Project Path="src/CaseFlow.Application/CaseFlow.Application.csproj" />
+    <Project Path="src/CaseFlow.Contracts/CaseFlow.Contracts.csproj" />
+    <Project Path="src/CaseFlow.Domain/CaseFlow.Domain.csproj" />
+    <Project Path="src/CaseFlow.Infrastructure/CaseFlow.Infrastructure.csproj" />
+    <Project Path="src/CaseFlow.Worker/CaseFlow.Worker.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CaseFlow.ArchitectureTests/CaseFlow.ArchitectureTests.csproj" />
+    <Project Path="tests/CaseFlow.IntegrationTests/CaseFlow.IntegrationTests.csproj" />
+    <Project Path="tests/CaseFlow.UnitTests/CaseFlow.UnitTests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,17 @@
+# Keep the build context small and the image clean.
+**/bin
+**/obj
+**/.vs
+.git
+.github
+.env
+.env.*
+# Runtime bind-mount data (created on the server by docker-compose.prod.yml;
+# owned by the container's postgres uid, so it must stay out of the context).
+data
+logs
+*.user
+docs
+postman
+TestResults
+**/*.md

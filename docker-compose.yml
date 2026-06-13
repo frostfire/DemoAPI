@@ -1,0 +1,28 @@
+# Local development infrastructure. The API and worker run from the CLI or the
+# IDE against this; containerizing the apps themselves is a deployment concern
+# and lives in the production compose file (later phase).
+#
+# Usage: docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: caseflow-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-caseflow}
+      POSTGRES_USER: ${POSTGRES_USER:-caseflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-caseflow_local_dev}
+    ports:
+      # Loopback only - no reason to expose a dev database to the network.
+      # Host port defaults to 5433 so it doesn't collide with a natively
+      # installed PostgreSQL on 5432; override with POSTGRES_PORT in .env.
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - caseflow-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-caseflow}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  caseflow-pgdata:

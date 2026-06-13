@@ -1,0 +1,32 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.{csproj,props,targets}]
+indent_size = 2
+
+[*.cs]
+indent_size = 4
+
+# Prefer file-scoped namespaces and var when the type is obvious
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_for_built_in_types = false:suggestion
+
+# Sort usings with System first
+dotnet_sort_system_directives_first = true
+
+# Naming: interfaces start with I, async methods end with Async
+dotnet_naming_rule.interfaces_begin_with_i.severity = warning
+dotnet_naming_rule.interfaces_begin_with_i.symbols = interface_symbols
+dotnet_naming_rule.interfaces_begin_with_i.style = prefix_i
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+dotnet_naming_style.prefix_i.required_prefix = I
+dotnet_naming_style.prefix_i.capitalization = pascal_case

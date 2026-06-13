@@ -1,0 +1,40 @@
+# Build output
+bin/
+obj/
+artifacts/
+publish/
+
+# Local container data (Postgres bind-mount from docker-compose.prod.yml)
+data/
+
+# IDE / tooling state
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.DotSettings.user
+
+# Test results & coverage
+TestResults/
+coverage/
+coverage.*.xml
+*.coverage
+*.trx
+
+# Local environment & secrets (only .env.sample belongs in the repo)
+.env
+.env.*
+!.env.sample
+!.env.prod.sample
+*.pfx
+*.snk
+.ssh/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Local notes / scratch files, not part of the project
+dotnet-api-demo-repo-plan.md
+.claude/

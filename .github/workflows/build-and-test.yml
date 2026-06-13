@@ -1,0 +1,31 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      # The integration tests spin up PostgreSQL via Testcontainers, which uses
+      # the Docker daemon already present on GitHub's ubuntu runners. No service
+      # container declaration is needed.
+      - name: Test
+        run: dotnet test --configuration Release --no-build --verbosity normal
